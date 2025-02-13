@@ -37,7 +37,7 @@ jobs:
       - uses: mr-smithers-excellent/docker-build-push@v6
         name: Build & push Docker image
         with:
-          image: ${{ vars.AZURE_REGISTRY_SERVER }}/${{ matrix.imageName }}
+          image: ${{ matrix.imageName }}
           tags: latest,1.3.4
           registry: ${{ vars.AZURE_REGISTRY_SERVER }}.azurecr.io
           dockerfile: src/${{ matrix.components }}/Dockerfile
