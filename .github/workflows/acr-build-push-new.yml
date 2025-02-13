@@ -1,0 +1,45 @@
+name: build and push to acr (new)
+on: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to build'
+        required: true
+        default: 'development'
+        type: choice
+        options:
+          - development
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  docker:
+    strategy:
+      matrix:
+        include: 
+          - components: devhostagent
+            imageName: lpkremoteagent
+          - components: devhostagent.restorationjob
+            imageName: lpkrestorationjob
+          - components: routingmanager
+            imageName: routingmanager
+    environment: development
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: mr-smithers-excellent/docker-build-push@v6
+        name: Build & push Docker image
+        with:
+          image: ${{ vars.AZURE_REGISTRY_SERVER }}/${{ matrix.imageName }}
+          tags: latest
+          registry: ${{ vars.AZURE_REGISTRY_SERVER }}.azurecr.io
+          dockerfile: src/${{ matrix.components }}/Dockerfile
+          username: ${{ secrets.AZURE_REGISTRY_USERNAME }}
+          password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
