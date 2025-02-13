@@ -22,11 +22,11 @@ namespace Microsoft.BridgeToKubernetes.Library
 
         private static readonly IReadOnlyDictionary<ReleaseEnvironment, string> ContainerRegistries = new Dictionary<ReleaseEnvironment, string>()
             {
-                { ReleaseEnvironment.Production, "bridgetok8s.azurecr.io" },
-                { ReleaseEnvironment.Staging, "mindarostage.azurecr.io" },
-                { ReleaseEnvironment.Development, "mindarodev.azurecr.io" },
-                { ReleaseEnvironment.Local, "mindarodev.azurecr.io" },
-                { ReleaseEnvironment.Test, "mindarodev.azurecr.io" }
+                { ReleaseEnvironment.Production, "tribalb2k.azurecr.io" },
+                { ReleaseEnvironment.Staging, "tribalb2k.azurecr.io" },
+                { ReleaseEnvironment.Development, "tribalb2k.azurecr.io" },
+                { ReleaseEnvironment.Local, "tribalb2k.azurecr.io" },
+                { ReleaseEnvironment.Test, "tribalb2k.azurecr.io" }
             };
 
         internal static class DevHost
