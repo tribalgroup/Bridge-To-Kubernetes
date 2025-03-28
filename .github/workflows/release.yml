@@ -66,6 +66,7 @@ jobs:
           New-Item -Path '${{ github.workspace }}\src\dsc\bin\Release\net7.0\${{ matrix.mode }}\publish\kubectl' -ItemType Directory
           $kubectlPath = '${{ github.workspace }}\src\dsc\bin\Release\net7.0\${{ matrix.mode }}\publish\kubectl\${{ matrix.kubectlPath }}'
           $kubectlDir = Split-Path $kubectlPath
+          $url = '${{ matrix.kubectlUrl }}'
           New-Item -Path $kubectlDir -ItemType Directory
           curl.exe $url -o $kubectlPath
         azPSVersion: '3.1.0'
