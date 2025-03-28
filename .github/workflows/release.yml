@@ -68,7 +68,7 @@ jobs:
           $kubectlDir = Split-Path $kubectlPath
           $url = '${{ matrix.kubectlUrl }}'
           New-Item -Path $kubectlDir -ItemType Directory
-          curl.exe $url -o $kubectlPath
+          curl.exe -L $url -o $kubectlPath
         azPSVersion: '3.1.0'
     - name: Create .Zip files (${{ matrix.mode }})
       uses: TheDoctor0/zip-release@b57d897cb5d60cb78b51a507f63fa184cfe35554 # 0.7.6
