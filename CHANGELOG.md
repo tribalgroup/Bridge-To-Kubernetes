@@ -1,9 +1,12 @@
-# Release notes
+# Changelog
 
-This is the change log of Bridge to Kubernetes which includes binaries, container images, and CLI.
+All notable changes to this project will be documented in this file.
 
-## [2.0.0.1]
+## 2.0.1 - 2025-03-28
+### Fixed
+- Fix kubectl missing from release.
+- Update kubectl to version 1.32.2.
 
-- First internal release
-- Fix kubectl missing from release - update to 1.32.2 too.   
+### Added
+- First internal release.
 
