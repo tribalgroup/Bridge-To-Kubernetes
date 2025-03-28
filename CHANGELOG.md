@@ -7,6 +7,10 @@ If you are using one of the IDE extensions for Bridge to Kubernetes, check the r
 - [Visual Studio 2019 extension release notes](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.mindaro#whats-new)
 - [Visual Studio 2022 extension release notes](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.mindaro2022#whats-new)
 
+## [2.0.0.0]
+- First internal release
+- Fix kubectl missing from release - update to 1.32.2 too.   
+
 ## [1.0.20240109.1]
 - [Bump Azure.Identity from 1.3.0 to 1.10.2 in /samples/managed-identity](https://github.com/Azure/Bridge-To-Kubernetes/pull/331)
 - [Bump next from 12.2.5 to 13.5.1 in /samples/todo-app/frontend](https://github.com/Azure/Bridge-To-Kubernetes/pull/344)
