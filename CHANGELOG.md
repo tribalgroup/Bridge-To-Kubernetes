@@ -8,21 +8,25 @@ If you are using one of the IDE extensions for Bridge to Kubernetes, check the r
 - [Visual Studio 2022 extension release notes](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.mindaro2022#whats-new)
 
 ## [2.0.0.0]
+
 - First internal release
 - Fix kubectl missing from release - update to 1.32.2 too.   
 
 ## [1.0.20240109.1]
+
 - [Bump Azure.Identity from 1.3.0 to 1.10.2 in /samples/managed-identity](https://github.com/Azure/Bridge-To-Kubernetes/pull/331)
 - [Bump next from 12.2.5 to 13.5.1 in /samples/todo-app/frontend](https://github.com/Azure/Bridge-To-Kubernetes/pull/344)
 - [Fix for M1 Mac arm64 issue](https://github.com/Azure/Bridge-To-Kubernetes/pull/346)
 
 ## [1.0.20231127.3]
+
 - [Support arm64 binaries for linux, windows and macos](https://github.com/Azure/Bridge-To-Kubernetes/pull/290)
 - [Update package version](https://github.com/Azure/Bridge-To-Kubernetes/pull/330)
 - [Update build-pipelines-PR.yml for Azure Pipelines](https://github.com/Azure/Bridge-To-Kubernetes/commit/65a0527df3ad85525668c05e8737de71247087ab)
 - [Fix the routing manager tag issue](https://github.com/Azure/Bridge-To-Kubernetes/pull/342)
 
 ## [1.0.20230927.2]
+
 - [Update samples/managed-identity app's client id](https://github.com/Azure/Bridge-To-Kubernetes/pull/307)
 - [Filter pods which are not replicaset or statefulset](https://github.com/Azure/Bridge-To-Kubernetes/pull/312)
 - [Add linkerd to supported side cars list](https://github.com/Azure/Bridge-To-Kubernetes/pull/310)
@@ -30,6 +34,7 @@ If you are using one of the IDE extensions for Bridge to Kubernetes, check the r
 - [Fix for failed to launch endpointmanager - retry with sudo](https://github.com/Azure/Bridge-To-Kubernetes/pull/319)
   
 ## [1.0.20230811.2]
+
 - [Add more wait time for iptables operations to avoid timeouts](https://github.com/Azure/Bridge-To-Kubernetes/pull/289)
 - [Include codeQL badge status](https://github.com/Azure/Bridge-To-Kubernetes/pull/295)
 - [Jeager side car support by bridge](https://github.com/Azure/Bridge-To-Kubernetes/pull/294)
@@ -39,6 +44,7 @@ If you are using one of the IDE extensions for Bridge to Kubernetes, check the r
 - [Update image tags to remediate security vulnerabilities with CBL mariner](https://github.com/Azure/Bridge-To-Kubernetes/pull/304)
 
 ## [1.0.20230706.1]
+
 - [Remove inaccurate statement from README](https://github.com/Azure/Bridge-To-Kubernetes/pull/277)
 - [Support different auth providers with kubectl proxy](https://github.com/Azure/Bridge-To-Kubernetes/pull/258)
 - [Update issue template](https://github.com/Azure/Bridge-To-Kubernetes/pull/281)
@@ -51,6 +57,7 @@ If you are using one of the IDE extensions for Bridge to Kubernetes, check the r
 - [Gracefull handling of exceptions that occurs when DevHostAgent closes sockets](https://github.com/Azure/Bridge-To-Kubernetes/pull/265)
 
 ## [1.0.20230525.1]
+
 - [Added launchSettings.json to .gitignore](https://github.com/Azure/Bridge-To-Kubernetes/pull/245)
 - [Removes package references in favour of FrameworkReference](https://github.com/Azure/Bridge-To-Kubernetes/pull/191)
 - [Live test for PR validations](https://github.com/Azure/Bridge-To-Kubernetes/pull/242)
@@ -64,6 +71,7 @@ If you are using one of the IDE extensions for Bridge to Kubernetes, check the r
 - [Refactoring Json serialization](https://github.com/Azure/Bridge-To-Kubernetes/pull/209)
 
 ## [1.0.20230418.1]
+
 - [Enable auto review by chatgpt](https://github.com/Azure/Bridge-To-Kubernetes/pull/232)
 - [Update base images to microsoft mariner images](https://github.com/Azure/Bridge-To-Kubernetes/pull/175)
 - [Add new editor config files](https://github.com/Azure/Bridge-To-Kubernetes/pull/230)
@@ -74,6 +82,7 @@ If you are using one of the IDE extensions for Bridge to Kubernetes, check the r
 - [timeout override from getContainerEnv](https://github.com/Azure/Bridge-To-Kubernetes/pull/231)
 
 ## [1.0.20230327.2]
+
 - Address [Remove BouncyCastle Nuget package since .NET 6 can handle this internally](https://github.com/Azure/Bridge-To-Kubernetes/pull/183)
 - Address [Remove minimatch and replace it with internal .NET package](https://github.com/Azure/Bridge-To-Kubernetes/pull/184)
 - Address [Restore job failure fix ](https://github.com/Azure/Bridge-To-Kubernetes/pull/203)
@@ -83,6 +92,7 @@ If you are using one of the IDE extensions for Bridge to Kubernetes, check the r
 - Other minor dependant bot fixes
 
 ## [1.0.20230310.3]
+
 - Address [issue around named port environment variables not being created](https://github.com/Azure/Bridge-To-Kubernetes/issues/165) 
 - Address [migrating from netwonsoft to stj](https://github.com/Azure/Bridge-To-Kubernetes/issues/134)
 - Address [fix to AddhostFileEntry tuple](https://github.com/Azure/Bridge-To-Kubernetes/issues/135)
@@ -91,6 +101,7 @@ If you are using one of the IDE extensions for Bridge to Kubernetes, check the r
 - Other minor bug fixes.
 
 ## [1.0.20221219.2]
+
 - Dotnet6 upgrade - minimum required dotnet version is 6.0.11 and downloads it when latest extension is used. **NOTE:** Going back to previous version of extension requires manual action by user to download the dotnet 3.1.6 and replace it in downloaded location. Extension would not download because 6.0.11 is higher than 3.1.6.
 - Manage Identity fixes
 - Fixes when using useKubernetesServiceEnvironmentVariables feature
