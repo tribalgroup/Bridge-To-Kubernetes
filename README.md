@@ -1,12 +1,6 @@
 
 # Bridge to Kubernetes
 
-[![Build Status](https://devdiv.visualstudio.com/DevDiv/_apis/build/status/Azure.Bridge-To-Kubernetes?branchName=main)](https://devdiv.visualstudio.com/DevDiv/_build/latest?definitionId=17861&branchName=main)
-
-[![CodeQL](https://github.com/Azure/Bridge-To-Kubernetes/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/Azure/Bridge-To-Kubernetes/actions/workflows/codeql-analysis.yml)
-
-## The Bridge to Kubernetes team plans to no longer actively maintain the project. Over the next few months, we will transition the project to an archival state. In the meantime, the project is still available to use and download. During this period, we will also explore and recommend community projects that provide similar benefits to Bridge to Kubernetes for your future use.
-
 Welcome to Bridge-To-Kubernetes! Bridge to Kubernetes extends the Kubernetes perimeter to your development computer allowing you to write, test, and debug microservice code while connected to your Kubernetes cluster with the rest of your application or services. You can simply run your code natively on your development workstation while connected to the Kubernetes cluster, allowing you to test your code changes in the context of the larger application.
 
 ## Introduction Video
@@ -16,33 +10,59 @@ https://learn.microsoft.com/en-us/shows/open-at-microsoft/get-started-with-bridg
 
 ## Key Features:
 
-### Simplifying Microservice Development 
-- Eliminate the need to manually source, configure and compile external dependencies on your development computer.  
-
-### Easy Debugging 
-- Run your usual debug profile with the added cluster configuration. You can debug your code as you normally would while taking advantage of the speed and flexibility of local debugging. 
-
-### Developing and Testing End-to-End 
-- Test end-to-end during development time. Select an existing service in the cluster to route to your development machine where an instance of that service is running locally. Request initiated through the frontend of the application running in Kubernetes will route between services running in the cluster until the service you specified to redirect is called. 
-
 ## Documentation
 - [Overview](https://learn.microsoft.com/visualstudio/bridge/overview-bridge-to-kubernetes)
 - [Visual Studio](https://learn.microsoft.com/visualstudio/bridge/bridge-to-kubernetes-vs)
 - [Visual Studio Code](https://learn.microsoft.com/visualstudio/bridge/bridge-to-kubernetes-vs-code)
 
 ## CLI tool installation
-- ```curl -fsSL https://raw.githubusercontent.com/Azure/Bridge-To-Kubernetes/main/scripts/install.sh | bash```
-- Supports Linux, Darwin, Windows - use WSL (installation link [here](https://learn.microsoft.com/en-us/windows/wsl/install)) or Git Bash (installation link [here](https://git-scm.com/))
+
+Unzip to the location of choice. An example could be c:\users\<username>\.bridge-cli
+
+### Setting up Environment Variables
+Two variables are needed to be configured for things to work smoothly. 
+
+- The first is the path variable needs to be updated to include the directory where the bridge-cli files were unzipped too. 
+- The next variable that needs to be added is KUBECTL_PROXY.
+    - Variable Name = KUBECTL_PROXY
+    - Variable Value = http://127.0.0.1:8001
+
+
 
 ## How to use the CLI
-- run the following command ``` dsc connect --service <service-name> --local-port <port-number> --namespace <namespace> --use-kubernetes-service-environment-variables ```
-- ```example is dsc connect --service stats-api --local-port 3001 --namespace todo-app```
-- for help  ``` dsc --help```
-- for version ```dsc --version```
 
-## Microsoft Open Source Code of Conduct
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)
- 
+To bridge a service you now need to begin by running the Kubernetes proxy service. To do this run the command. This window will need to remain open whilst bridging.
+
+```kubectl proxy```
+
+Then open up another terminal window (making sure the IDE you are using isn't currently open, if you have already bridged and opened up the IDE and want to bridge another service you don't need to close the IDE) run this command.
+
+```dsc connect --service <service-name> --local-port <port> --namespace <namespace>```
+
+When asked “Once your cluster environment is replicated, all processes on your machine will be able to access it. Do you want to process? (y/N)”, press “y” and return.
+
+This will open a new command prompt, which will eventually return to a prompt.
+
+### Open the IDE to debug
+From the command prompt that was opened during the previous step, open your preferred IDE, such as Visual Studio or Rider.
+
+Tip: you may want to add the folder to your preferred IDE to your Path environment variable, following the steps above
+
+### Open the solution and debug
+Now you are in your IDE, open the solution you wish to debug. Then you can press the normal button in the toolbar to begin debugging, e.g. 
+
+### General usage
+At this point, you can stop debugging, make code changes, debug, and continue the cycle as normal.
+
+### Terminating the bridge-cli
+- Stop debugging in the IDE if you are currently doing so
+- Close the IDE
+- From the command prompt used to open the IDE, type exit and press return
+- This command prompt should disappear and the original terminal the bridge command was executed from should return to a prompt
+- Kubernetes should now restore the replaced pod into your cluster
+- Close the Kubectl Proxy service
+
+
 ## Trademarks
 This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow [Microsoft’s Trademark & Brand Guidelines] (https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks). Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party’s policies.
  
@@ -51,9 +71,4 @@ Checkout the SECURITY.md file in this repo for details.
 
 ## Data Collection
 The software may collect information about you and your use of the software and send it to Microsoft. Microsoft may use this information to provide services and improve our products and services. You may turn off the telemetry as described in the repository. There are also some features in the software that may enable you and Microsoft to collect data from users of your applications. If you use these features, you must comply with applicable law, including providing appropriate notices to users of your applications together with a copy of Microsoft’s privacy statement. Our privacy statement is located at https://go.microsoft.com/fwlink/?LinkID=824704. You can learn more about data collection and use in the help documentation and our privacy statement. Your use of the software operates as your consent to these practices.
-
-## Support
-
-Bridge to Kubernetes is an open source project that is not covered by the [Microsoft Azure support policy](https://docs.microsoft.com/en-US/troubleshoot/azure/cloud-services/support-linux-open-source-technology). [Please search open issues here](https://github.com/Azure/Bridge-To-Kubernetes/issues), and if your issue isn't already represented [please open a new one](https://github.com/Azure/Bridge-To-Kubernetes/issues/new/choose). The project maintainers will respond to the best of their abilities and triage the most urgent bugs.
-
 
