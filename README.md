@@ -3,17 +3,10 @@
 
 Welcome to Bridge-To-Kubernetes! Bridge to Kubernetes extends the Kubernetes perimeter to your development computer allowing you to write, test, and debug microservice code while connected to your Kubernetes cluster with the rest of your application or services. You can simply run your code natively on your development workstation while connected to the Kubernetes cluster, allowing you to test your code changes in the context of the larger application.
 
-## Introduction Video
-https://learn.microsoft.com/en-us/shows/open-at-microsoft/get-started-with-bridge-to-kubernetes
-
-![image002](https://github.com/Azure/Bridge-To-Kubernetes/assets/105889062/7d71f41d-dafe-4039-afb1-31600f4a793f)
-
 ## Key Features:
 
 ## Documentation
 - [Overview](https://learn.microsoft.com/visualstudio/bridge/overview-bridge-to-kubernetes)
-- [Visual Studio](https://learn.microsoft.com/visualstudio/bridge/bridge-to-kubernetes-vs)
-- [Visual Studio Code](https://learn.microsoft.com/visualstudio/bridge/bridge-to-kubernetes-vs-code)
 
 ## CLI tool installation
 
@@ -27,8 +20,6 @@ Two variables are needed to be configured for things to work smoothly.
     - Variable Name = KUBECTL_PROXY
     - Variable Value = http://127.0.0.1:8001
 
-
-
 ## How to use the CLI
 
 To bridge a service you now need to begin by running the Kubernetes proxy service. To do this run the command. This window will need to remain open whilst bridging.
@@ -38,6 +29,8 @@ To bridge a service you now need to begin by running the Kubernetes proxy servic
 Then open up another terminal window (making sure the IDE you are using isn't currently open, if you have already bridged and opened up the IDE and want to bridge another service you don't need to close the IDE) run this command.
 
 ```dsc connect --service <service-name> --local-port <port> --namespace <namespace>```
+
+**Note : If you are using a ```KubernetesLocalProcessConfig.yaml``` file to configure - then ensure that you run the dsc command from the folder containing it. **
 
 When asked “Once your cluster environment is replicated, all processes on your machine will be able to access it. Do you want to process? (y/N)”, press “y” and return.
 
