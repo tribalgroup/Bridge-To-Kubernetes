@@ -30,7 +30,7 @@ Then open up another terminal window (making sure the IDE you are using isn't cu
 
 ```dsc connect --service <service-name> --local-port <port> --namespace <namespace>```
 
-**Note : If you are using a ```KubernetesLocalProcessConfig.yaml``` file to configure - then ensure that you run the dsc command from the folder containing it. **
+**Note : If you are using a ```KubernetesLocalProcessConfig.yaml``` file to configure - then ensure that you run the dsc command from the folder containing it.**
 
 When asked “Once your cluster environment is replicated, all processes on your machine will be able to access it. Do you want to process? (y/N)”, press “y” and return.
 
@@ -39,7 +39,7 @@ This will open a new command prompt, which will eventually return to a prompt.
 ### Open the IDE to debug
 From the command prompt that was opened during the previous step, open your preferred IDE, such as Visual Studio or Rider.
 
-Tip: you may want to add the folder to your preferred IDE to your Path environment variable, following the steps above
+**Tip:** you may want to add the folder to your preferred IDE to your Path environment variable, following the steps above
 
 ### Open the solution and debug
 Now you are in your IDE, open the solution you wish to debug. Then you can press the normal button in the toolbar to begin debugging, e.g. 
